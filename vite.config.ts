@@ -7,8 +7,8 @@ import pkg from "./package.json";
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
-  pkg: { dependencies, devDependencies, name, version },
   lastBuildTime: new Date().toISOString(),
+  pkg: { dependencies, devDependencies, name, version },
 };
 
 
