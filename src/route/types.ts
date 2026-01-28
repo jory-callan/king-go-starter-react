@@ -18,10 +18,9 @@ export interface RouteMeta {
 
 export interface AppRoutes {
   path: string;
-  index?: boolean;
   label?: string;
   description?: string; // 页面描述
-  element?: React.ReactNode
+  element?: React.ReactNode;
   Component?: React.ComponentType; // 与 element 二选一
   loader?: LoaderFunction;
   handle?: any;

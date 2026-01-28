@@ -26,7 +26,7 @@ export function LazyElement(
 
 export const globalLoader = (meta: RouteMeta) => {
   return async ({ request }: { request: Request }) => {
-    // 设置页面标题 (副作用)
+    // 设置页面标题
     if (meta.title) {
       document.title = meta.title;
     }
@@ -50,14 +50,5 @@ export const globalLoader = (meta: RouteMeta) => {
       throw redirect(`/login?redirect=${encodeURIComponent(pathname)}`);
     }
 
-    // // 角色权限判断 (可选增强)
-    // if (meta.roles && meta.roles.length > 0) {
-    //   // 假设你有获取用户角色的方法
-    //   const userRole = localStorage.getItem("userRole");
-    //   if (userRole && !meta.roles.includes(userRole)) {
-    //     // 角色不匹配，跳转到 403 或无权限页
-    //     throw redirect("/403");
-    //   }
-    // }
   };
 };

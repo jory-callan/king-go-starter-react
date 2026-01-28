@@ -18,7 +18,7 @@ function transformRoutes(routes: AppRoutes[]): RouteObject[] {
       ...rest,
       element: LayoutMap[layoutStr],
       loader: globalLoader(meta),
-      children: element ? [{ ...rest, element }] : undefined
+      children: [{ ...rest, element }]
     };
     // @ts-expect-error 不允许出现 children
     if (route.children != undefined) {
