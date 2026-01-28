@@ -6,17 +6,22 @@ import { LazyElement } from "./utils";
 export const routesConfig: AppRoutes[] = [
   {
     path: "/login",
-    element: LazyElement(() => import("../page/login")),
+    element: LazyElement(() => import("@/page/login")),
     meta: { layout:"LayoutDefault", title: "用户登录", whitePage: true }
   },
   {
     path: "/",
-    element: LazyElement(() => import("../page/home")),
+    element: LazyElement(() => import("@/page/home")),
     meta: { layout:"LayoutDefault", title: "首页" }
   },
   {
     path: "/dashboard",
-    element: LazyElement(() => import("../page/dashboard")),
+    element: LazyElement(() => import("@/page/dashboard")),
     meta: { layout:"LayoutDefault", title: "仪表盘",needLogin: true, roles: ["admin"] }
   },
+  {
+    path:"/vtable",
+    element: LazyElement(() => import("@/page/vtable")),
+    meta: { layout:"LayoutDefault", title: "虚拟表格", needLogin: true }
+  }
 ];
