@@ -1,4 +1,4 @@
-import path, { resolve } from "path"
+import path from "path"
 import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig, loadEnv, type ConfigEnv, type UserConfig } from "vite"
@@ -7,7 +7,7 @@ import pkg from "./package.json";
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
-  lastBuildTime: new Date().toISOString(),
+  lastBuildTime: new Date().toLocaleString(),
   pkg: { dependencies, devDependencies, name, version },
 };
 
