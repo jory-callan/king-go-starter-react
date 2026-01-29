@@ -2,8 +2,8 @@ import type { ComponentType } from "react";
 import { lazy, Suspense } from "react";
 import type { RouteMeta } from "./types"; // 确保你的 AppRoutes 包含 meta 和 loader
 import { redirect } from "react-router";
+import { useUserStore } from "@/store/user";
 
-const isLogin = true
 
 // 1. 优化后的懒加载封装
 // 注意：这里只负责加载，不负责渲染 JSX。渲染交给 Router 配置。
@@ -36,11 +36,14 @@ export const globalLoader = (meta: RouteMeta) => {
     const isProtected = meta.whitePage !== true;
 
     if (!isProtected) {
-      console.log(">>> Page is not protected, allowing access");
+      console.log(">>> Page is whitePage, allow everybody access");
       return null;
     }
 
     console.log(">>> Page is protected, checking authentication");
+    // const isLogin = true
+    const userStore = useUserStore.getState()
+    const isLogin = userStore.isLogin;
     // 检查是否登录
     if (!isLogin) {
       // 未登录：获取当前请求的 URL 用于回跳
