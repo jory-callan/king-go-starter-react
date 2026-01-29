@@ -1,12 +1,10 @@
-import { ModeToggle } from "@/components/mode-toggle"
 import { Outlet } from "react-router"
+import { AppSidebar } from "./app-layout/app-sidebar"
 
 const LayoutDefault = () => {
   return (
     <>
-      <h1>LayoutDefault</h1>
-      <ModeToggle></ModeToggle>
-      <hr />
+      <AppSidebar></AppSidebar>
       <Outlet />
     </>
   )

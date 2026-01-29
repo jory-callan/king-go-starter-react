@@ -22,8 +22,9 @@ export default function TestDemo() {
     ],
     records: new Array(1000).fill(["John", 18, "male", "🏀"]),
   };
+  console.log(">>> 进入 vtable")
   return (
-    <div>
+    <div className="w-full">
       <ListTable option={option} height={"500px"} />
     </div>
   )
