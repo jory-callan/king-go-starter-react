@@ -23,6 +23,7 @@ export default defineConfig([
       //es
       '@typescript-eslint/no-explicit-any': "off",
       "@typescript-eslint/consistent-type-imports": "off",
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": '^_+', "varsIgnorePattern": '^_+', "caughtErrorsIgnorePattern": "^_"}],
 
       // react
       'react-refresh/only-export-components': 'off',
@@ -32,8 +33,7 @@ export default defineConfig([
       'no-debugger': 'warn',
       'no-var': 'error', // 禁止使用 var
       'prefer-const': 'error', // 优先使用 const
-      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
-      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" , "caughtErrorsIgnorePattern": "^_" }],
 
       // --- 代码风格 ---
       // 'semi': ['error', 'never'], // 不使用分号
