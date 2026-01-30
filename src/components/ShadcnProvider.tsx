@@ -7,10 +7,10 @@ export function ShadcnProvider({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-        <Toaster position="top-center" />
         <SidebarProvider>
           {children}
         </SidebarProvider>
+        <Toaster position="top-center" />
       </ThemeProvider>
     </>
   )

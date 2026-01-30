@@ -39,8 +39,6 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
 
-  toast("Event has been created.")
-
   const form = useForm({
     defaultValues: {
       email: "",
