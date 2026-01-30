@@ -1,0 +1,13 @@
+export function SiteFooter() {
+  return (
+    <footer className="border-t bg-background">
+      <div className="px-4 py-4 lg:px-6">
+        <div className="flex flex-col items-center justify-center space-y-2 text-center">
+          <p className="text-xs text-muted-foreground">
+            Copyright 2026. All rights reserved.<br />Built with ❤️
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
