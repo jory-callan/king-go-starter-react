@@ -6,7 +6,7 @@ interface GeneralErrorProps extends React.HTMLAttributes<HTMLDivElement> {
   minimal?: boolean
 }
 
-export default function GeneralError({
+export default function Error500({
   className,
   minimal = false,
 }: GeneralErrorProps) {

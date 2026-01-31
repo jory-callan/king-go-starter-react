@@ -4,17 +4,12 @@ import * as React from "react"
 import {
   LayoutPanelLeft,
   LayoutDashboard,
-  Mail,
-  CheckSquare,
-  MessageCircle,
-  Calendar,
+  Settings,
   Shield,
   AlertTriangle,
-  Settings,
   HelpCircle,
   CreditCard,
   LayoutTemplate,
-  Users,
 } from "lucide-react"
 import { Link } from "react-router"
 import { Logo } from "@/components/logo"
@@ -31,181 +26,75 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
+// 导入路由配置
+import { routesConfig } from "@/route/routes"
+
+// 定义图标映射
+const iconMap: Record<string, any> = {
+  dashboard: LayoutDashboard,
+  "dashboard-2": LayoutPanelLeft,
+  settings: Settings,
+  auth: Shield,
+  errors: AlertTriangle,
+  faqs: HelpCircle,
+  pricing: CreditCard,
+  landing: LayoutTemplate,
+};
+
+// 从路由配置中提取导航组
+const getNavGroups = () => {
+  // 过滤出需要在菜单中显示的路由（未设置 hiddenInMenu 或 hiddenInMenu 为 false）
+  const visibleRoutes = routesConfig.filter(
+    route => route.meta && !route.meta.hiddenInMenu
+  );
+
+  // 按组对路由进行分类
+  const groupedRoutes: Record<string, typeof visibleRoutes> = {};
+
+  visibleRoutes.forEach(route => {
+    const group = route.meta?.group || "other"; // 默认分组为 other
+    if (!groupedRoutes[group]) {
+      groupedRoutes[group] = [];
+    }
+    groupedRoutes[group].push(route);
+  });
+
+  // 构建导航组数据
+  const navGroups = Object.entries(groupedRoutes).map(([groupName, routes]) => {
+    // 获取该组的路由信息
+    return {
+      label: groupName.charAt(0).toUpperCase() + groupName.slice(1), // 首字母大写
+      items: routes.map(route => {
+        // 尝试从 meta.icon 获取图标，或者根据路径或分组确定图标
+        let icon = route.meta?.icon ? iconMap[route.meta.icon] : undefined;
+        if (!icon) {
+          // 如果没有指定图标，尝试根据分组名称匹配
+          icon = iconMap[groupName];
+        }
+        if (!icon) {
+          // 如果仍然没有图标，使用默认图标
+          icon = Settings;
+        }
+
+        return {
+          title: route.meta?.title || route.path,
+          url: route.path,
+          icon: icon as any, // 类型转换以匹配 NavMain 组件的期望类型
+        };
+      }),
+    };
+  });
+
+  return navGroups;
+};
+
 const data = {
   user: {
     name: "KingStarter",
     email: "kingstarter@example.com",
     avatar: "",
   },
-  navGroups: [
-    {
-      label: "Dashboards",
-      items: [
-        {
-          title: "Dashboard 1",
-          url: "/dashboard",
-          icon: LayoutDashboard,
-        },
-        {
-          title: "Dashboard 2",
-          url: "/dashboard-2",
-          icon: LayoutPanelLeft,
-        },
-      ],
-    },
-    {
-      label: "System",
-      items: [
-        {
-          title: "Setting",
-          url: "/system/setting",
-          icon: Settings,
-        },
-        {
-          title: "Tasks",
-          url: "/tasks",
-          icon: CheckSquare,
-        },
-        {
-          title: "Chat",
-          url: "/chat",
-          icon: MessageCircle,
-        },
-        {
-          title: "Calendar",
-          url: "/calendar",
-          icon: Calendar,
-        },
-        {
-          title: "Users",
-          url: "/users",
-          icon: Users,
-        },
-      ],
-    },
-    {
-      label: "Pages",
-      items: [
-        {
-          title: "Landing",
-          url: "/landing",
-          target: "_blank",
-          icon: LayoutTemplate,
-        },
-        {
-          title: "Auth Pages",
-          url: "#",
-          icon: Shield,
-          items: [
-            {
-              title: "Sign In 1",
-              url: "/auth/sign-in",
-            },
-            {
-              title: "Sign In 2",
-              url: "/auth/sign-in-2",
-            },
-            {
-              title: "Sign In 3",
-              url: "/auth/sign-in-3",
-            },
-            {
-              title: "Sign Up 1",
-              url: "/auth/sign-up",
-            },
-            {
-              title: "Sign Up 2",
-              url: "/auth/sign-up-2",
-            },
-            {
-              title: "Sign Up 3",
-              url: "/auth/sign-up-3",
-            },
-            {
-              title: "Forgot Password 1",
-              url: "/auth/forgot-password",
-            },
-            {
-              title: "Forgot Password 2",
-              url: "/auth/forgot-password-2",
-            },
-            {
-              title: "Forgot Password 3",
-              url: "/auth/forgot-password-3",
-            }
-          ],
-        },
-        {
-          title: "Errors",
-          url: "#",
-          icon: AlertTriangle,
-          items: [
-            {
-              title: "Unauthorized",
-              url: "/errors/unauthorized",
-            },
-            {
-              title: "Forbidden",
-              url: "/errors/forbidden",
-            },
-            {
-              title: "Not Found",
-              url: "/errors/not-found",
-            },
-            {
-              title: "Internal Server Error",
-              url: "/errors/internal-server-error",
-            },
-            {
-              title: "Under Maintenance",
-              url: "/errors/under-maintenance",
-            },
-          ],
-        },
-        {
-          title: "Settings",
-          url: "#",
-          icon: Settings,
-          items: [
-            {
-              title: "User Settings",
-              url: "/settings/user",
-            },
-            {
-              title: "Account Settings",
-              url: "/settings/account",
-            },
-            {
-              title: "Plans & Billing",
-              url: "/settings/billing",
-            },
-            {
-              title: "Appearance",
-              url: "/settings/appearance",
-            },
-            {
-              title: "Notifications",
-              url: "/settings/notifications",
-            },
-            {
-              title: "Connections",
-              url: "/settings/connections",
-            },
-          ],
-        },
-        {
-          title: "FAQs",
-          url: "/faqs",
-          icon: HelpCircle,
-        },
-        {
-          title: "Pricing",
-          url: "/pricing",
-          icon: CreditCard,
-        },
-      ],
-    },
-  ],
+  navGroups: getNavGroups(),
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

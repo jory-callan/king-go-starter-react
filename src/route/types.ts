@@ -12,8 +12,9 @@ export interface RouteMeta {
   roles?: string[];
   permissionCode?: string[]; // 对应的权限码 (menu:xxx:xxx)
   description?: string; // 页面描述
-//   hideMenu?: boolean; // 是否隐藏菜单
-//   openInNewTab?: boolean; // 新窗口打开
+  hiddenInMenu?: boolean; // 是否隐藏菜单
+  openInNewTab?: boolean; // 新窗口打开
+  group?: string; // 分组，用于菜单分组
 }
 
 export interface AppRoutes {

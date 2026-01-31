@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router"
 import { Button } from "@/components/ui/button"
 
-export default function NotFoundError() {
+export default function Error404() {
   const navigate = useNavigate()
   return (
     <div className='h-svh'>
