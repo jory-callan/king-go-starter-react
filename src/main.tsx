@@ -5,9 +5,12 @@ import "./index.css"
 import App from "./App.tsx"
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <>
+    <StrictMode>
+      <App />
+    </StrictMode>
+    {/* <App /> */}
+  </>
 )
 
 // @ts-expect-error 这个已经定义过了，可以直接使用
