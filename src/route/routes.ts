@@ -7,7 +7,7 @@ export const routesConfig: AppRoutes[] = [
   {
     path: "/login",
     element: LazyElement(() => import("@/page/login")),
-    meta: { layout:"LayoutDefault", title: "用户登录", whitePage: true }
+    meta: { layout:"none", title: "用户登录", whitePage: true }
   },
   {
     path: "/",
