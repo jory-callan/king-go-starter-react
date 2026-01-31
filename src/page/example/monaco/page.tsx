@@ -33,7 +33,6 @@ helloWorld();`);
               onChange={(value) => setCode(value || "")}
               language="javascript"
               height="400px"
-              theme="vs-dark"
               autoCompletion={true}
               bracketPairColorization={true}
             />
@@ -55,7 +54,6 @@ const user: User = {
 };`}
               language="typescript"
               height="300px"
-              theme="vs"
             />
           </div>
         </div>
@@ -75,7 +73,6 @@ const user: User = {
 }`}
               language="json"
               height="300px"
-              theme="vs-dark"
             />
           </div>
         </div>

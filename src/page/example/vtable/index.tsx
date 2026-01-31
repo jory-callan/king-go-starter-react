@@ -1,4 +1,4 @@
-import { ListTable } from "@visactor/react-vtable";
+import { ListTable,ListTableSimple } from "@visactor/react-vtable";
 
 export default function TestDemo() {
   const option = {
@@ -20,6 +20,10 @@ export default function TestDemo() {
         title: "hobby",
       },
     ],
+    theme: "dark",
+    hover:{
+      highlightMode: "column",
+    },
     records: new Array(1000).fill(["John", 18, "male", "🏀"]),
   };
   console.log(">>> 进入 vtable")
