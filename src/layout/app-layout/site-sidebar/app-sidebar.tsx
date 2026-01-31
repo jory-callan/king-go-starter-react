@@ -2,14 +2,7 @@
 
 import * as React from "react"
 import {
-  LayoutPanelLeft,
-  LayoutDashboard,
-  Settings,
-  Shield,
-  AlertTriangle,
-  HelpCircle,
-  CreditCard,
-  LayoutTemplate,
+  Circle,
 } from "lucide-react"
 import { Link } from "react-router"
 import { Logo } from "@/components/logo"
@@ -31,14 +24,7 @@ import { routesConfig } from "@/route/routes"
 
 // 定义图标映射
 const iconMap: Record<string, any> = {
-  dashboard: LayoutDashboard,
-  "dashboard-2": LayoutPanelLeft,
-  settings: Settings,
-  auth: Shield,
-  errors: AlertTriangle,
-  faqs: HelpCircle,
-  pricing: CreditCard,
-  landing: LayoutTemplate,
+
 };
 
 // 从路由配置中提取导航组
@@ -73,7 +59,7 @@ const getNavGroups = () => {
         }
         if (!icon) {
           // 如果仍然没有图标，使用默认图标
-          icon = Settings;
+          icon = Circle;
         }
 
         return {

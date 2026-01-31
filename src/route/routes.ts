@@ -34,41 +34,52 @@ export const routesConfig: AppRoutes[] = [
   {
     path: "/",
     element: LazyElement(() => import("@/page/home")),
-    meta: { layout:"LayoutDefault", title: "首页", hiddenInMenu: true }
+    meta: { layout:"LayoutDefault", title: "首页", icon: "home", hiddenInMenu: true }
   },
   {
     path: "/landing",
     element: LazyElement(() => import("@/page/landing/page.tsx")),
-    meta: { layout:"", title: "介绍页", whitePage: true, hiddenInMenu: true }
+    meta: { layout:"", title: "介绍页", whitePage: true, icon: "presentation", hiddenInMenu: true }
   },
   {
     path: "/dashboard",
     element: LazyElement(() => import("@/page/dashboard")),
-    meta: { layout:"LayoutDefault", title: "仪表盘",needLogin: true, roles: ["admin"], group: "dashboard" }
+    meta: { layout:"LayoutDefault", title: "仪表盘",needLogin: true, roles: ["admin"], group: "dashboard", icon: "layout-dashboard" }
   },
   {
     path: "/dashboard-2",
     element: LazyElement(() => import("@/page/dashboard-2")),
-    meta: { layout:"LayoutDefault", title: "仪表盘2",needLogin: true, roles: ["admin"], group: "dashboard" }
+    meta: { layout:"LayoutDefault", title: "仪表盘2",needLogin: true, roles: ["admin"], group: "dashboard", icon: "gauge" }
   },
   {
     path: "/system/setting",
     element: LazyElement(() => import("@/page/system/setting")),
-    meta: { layout:"LayoutDefault", title: "设置",needLogin: true, roles: ["admin"], group: "system" }
+    meta: { layout:"LayoutDefault", title: "设置",needLogin: true, roles: ["admin"], group: "system", icon: "setting" }
   },
   {
     path: "/example",
     element: LazyElement(() => import("@/page/example/page.tsx")),
-    meta: { layout:"LayoutDefault", title: "示例",needLogin: true, group: "example" }
+    meta: { layout:"LayoutDefault", title: "示例",needLogin: true, group: "example", icon: "view" }
   },
   {
     path: "/example/vtable",
     element: LazyElement(() => import("@/page/example/vtable")),
-    meta: { layout:"LayoutDefault", title: "虚拟表格", needLogin: true, group: "example" }
+    meta: { layout:"LayoutDefault", title: "虚拟表格", needLogin: true, group: "example", icon: "table" }
+  },
+  {
+    path: "/example/monaco",
+    element: LazyElement(() => import("@/page/example/monaco/page.tsx")),
+    meta: { layout:"LayoutDefault", title: "Monaco", needLogin: true, group: "example", icon: "code" }
+  },
+  {
+    path: "/example/shadcnui",
+    element: LazyElement(() => import("@/page/example/shadcnui/page")),
+    meta: { layout:"LayoutDefault", title: "ShadcnUI", needLogin: true, group: "example", icon: "ui" }
   },
   {
     path: "/database",
     element: LazyElement(() => import("@/page/database/page.tsx")),
-    meta: { layout:"LayoutDefault", title: "数据库", needLogin: true, group: "database" }
+    meta: { layout:"LayoutDefault", title: "数据库", needLogin: true, group: "database", icon: "database" }
   },
+
 ];
