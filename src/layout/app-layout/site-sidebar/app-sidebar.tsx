@@ -33,8 +33,8 @@ import {
 
 const data = {
   user: {
-    name: "ShadcnStore",
-    email: "store@example.com",
+    name: "KingStarter",
+    email: "kingstarter@example.com",
     avatar: "",
   },
   navGroups: [
@@ -54,12 +54,12 @@ const data = {
       ],
     },
     {
-      label: "Apps",
+      label: "System",
       items: [
         {
-          title: "Mail",
-          url: "/mail",
-          icon: Mail,
+          title: "Setting",
+          url: "/system/setting",
+          icon: Settings,
         },
         {
           title: "Tasks",
@@ -215,7 +215,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link to="/dashboard">
+              <Link to="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Logo size={24} className="text-current" />
                 </div>

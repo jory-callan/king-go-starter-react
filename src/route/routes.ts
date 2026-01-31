@@ -25,6 +25,11 @@ export const routesConfig: AppRoutes[] = [
     meta: { layout:"LayoutDefault", title: "仪表盘",needLogin: true, roles: ["admin"] }
   },
   {
+    path: "/system/setting",
+    element: LazyElement(() => import("@/page/system/setting")),
+    meta: { layout:"LayoutDefault", title: "设置",needLogin: true, roles: ["admin"] }
+  },
+  {
     path:"/vtable",
     element: LazyElement(() => import("@/page/vtable")),
     meta: { layout:"LayoutDefault", title: "虚拟表格", needLogin: true }
