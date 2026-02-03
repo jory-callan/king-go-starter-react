@@ -11,18 +11,18 @@ const LayoutDefault = () => {
   const { variant, side } = useSidebarConfig();
   return (
     <>
-      <SidebarProvider defaultOpen={defaultOpen} >
+      <SidebarProvider defaultOpen={defaultOpen}>
         <div className="h-screen w-screen flex">
-          <aside className="overflow-y-auto">
+          <aside>
             <AppSidebar
               variant={variant}
               collapsible="icon"
               side={side}
             />
           </aside>
-          <main className="flex-1 flex flex-col min-h-0">
+          <main className="flex-1 flex flex-col min-h-0 min-w-0">
             <SiteHeader />
-            <div className="flex-1 overflow-y-auto p-4 pb-10 min-h-0">
+            <div className="flex-1 p-4 overflow-y-auto">
               <Outlet />
             </div>
             <SiteFooter />

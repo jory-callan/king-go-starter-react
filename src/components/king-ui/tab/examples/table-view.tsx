@@ -7,7 +7,6 @@ import type { TabComponentProps } from "../types";
 export const TableView: React.FC<TabComponentProps> = ({ tab, tabId, isActive }) => {
   const {
     getMetadataValue,
-    setMetadataValue,
     updateMetadata,
   } = useTabMetadata(tabId);
 

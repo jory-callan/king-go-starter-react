@@ -89,7 +89,7 @@ export const QueryEditor: React.FC<TabComponentProps> = ({ tab, tabId, isActive 
             placeholder="Enter your SQL query here..."
             value={queryText}
             onChange={(e) => setQueryText(e.target.value)}
-            className="h-full min-h-[200px] font-mono text-sm"
+            className="h-full min-h-50 font-mono text-sm"
           />
         </div>
 

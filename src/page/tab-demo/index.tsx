@@ -61,7 +61,7 @@ export const TabDemoPage: React.FC = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col p-6">
+    <div className="flex flex-col p-6">
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Tab 系统演示</CardTitle>

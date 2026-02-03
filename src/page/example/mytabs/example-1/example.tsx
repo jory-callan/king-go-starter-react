@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import {
   TabContainer,
   registerTabComponent,
-  registerMultipleComponents
 } from "@/components/king-ui/tab";
 import { useTabStore } from "@/store/tabs";
 import { TableView } from "@/components/king-ui/tab/examples/table-view";
@@ -94,12 +93,12 @@ export default function Example1() {
   };
 
   return (
-    <div className="h-500px flex flex-col p-6 bg-background">
-      <Card className="mb-6 shadow-lg">
+    <>
+      <Card className="shadow-lg">
         <CardHeader className="pb-3">
           <CardTitle className="text-2xl">🚀 动态 Tab 系统演示</CardTitle>
           <CardDescription className="text-base">
-            基于 React 和 Zustand 的轻量级多类型动态 Tab 系统 - 完整功能展示
+              基于 React 和 Zustand 的轻量级多类型动态 Tab 系统 - 完整功能展示
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -191,33 +190,30 @@ export default function Example1() {
           </div>
         </CardContent>
       </Card>
-
-      <div className="h-200 flex flex-col border rounded-xl shadow-lg bg-background">
-        <TabContainer
-          className="h-full flex flex-col"
-          contentClassName="flex-1 bg-background"
-          headerClassName="bg-muted/50 border-b flex-shrink-0"
-          showHeader={true}
-          emptyContent={
-            <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8">
-              <div className="text-6xl mb-4">👋</div>
-              <h3 className="text-xl font-semibold mb-2">欢迎使用 Tab 系统</h3>
-              <p className="text-center max-w-md mb-6">
-                点击上方按钮创建新的 Tab，体验多类型动态标签页的强大功能。
-                支持表格视图、查询编辑器等多种组件类型。
-              </p>
-              <div className="flex gap-3">
-                <Button onClick={handleOpenTableTab}>
-                  创建第一个表格 Tab
-                </Button>
-                <Button onClick={handleOpenQueryTab} variant="secondary">
-                  创建第一个查询 Tab
-                </Button>
-              </div>
+      <TabContainer
+        className=""
+        contentClassName=""
+        headerClassName=""
+        showHeader={true}
+        emptyContent={
+          <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8">
+            <div className="text-6xl mb-4">👋</div>
+            <h3 className="text-xl font-semibold mb-2">欢迎使用 Tab 系统</h3>
+            <p className="text-center max-w-md mb-6">
+                  点击上方按钮创建新的 Tab，体验多类型动态标签页的强大功能。
+                  支持表格视图、查询编辑器等多种组件类型。
+            </p>
+            <div className="flex gap-3">
+              <Button onClick={handleOpenTableTab}>
+                    创建第一个表格 Tab
+              </Button>
+              <Button onClick={handleOpenQueryTab} variant="secondary">
+                    创建第一个查询 Tab
+              </Button>
             </div>
-          }
-        />
-      </div>
-    </div>
+          </div>
+        }
+      />
+    </>
   );
 }

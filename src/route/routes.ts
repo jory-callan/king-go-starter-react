@@ -52,6 +52,11 @@ export const routesConfig: AppRoutes[] = [
     meta: { layout:"LayoutDefault", title: "仪表盘2",needLogin: true, roles: ["admin"], group: "dashboard", icon: "gauge" }
   },
   {
+    path: "/dashboard-3",
+    element: LazyElement(() => import("@/page/dashboard-3")),
+    meta: { layout:"LayoutDefault", title: "仪表盘3",needLogin: true, roles: ["admin"], group: "dashboard", icon: "gauge" }
+  },
+  {
     path: "/system/setting",
     element: LazyElement(() => import("@/page/system/setting")),
     meta: { layout:"LayoutDefault", title: "设置",needLogin: true, roles: ["admin"], group: "system", icon: "setting" }
