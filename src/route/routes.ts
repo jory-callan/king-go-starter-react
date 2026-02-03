@@ -77,6 +77,11 @@ export const routesConfig: AppRoutes[] = [
     meta: { layout:"LayoutDefault", title: "ShadcnUI", needLogin: true, group: "example", icon: "ui" }
   },
   {
+    path: "/example/mytabs",
+    element: LazyElement(() => import("@/page/example/mytabs/page.tsx")),
+    meta: { layout:"LayoutDefault", title: "MyTabs", needLogin: true, group: "example", icon: "tabs" }
+  },
+  {
     path: "/database",
     element: LazyElement(() => import("@/page/database/page.tsx")),
     meta: { layout:"LayoutDefault", title: "数据库", needLogin: true, group: "database", icon: "database" }
