@@ -11,15 +11,18 @@ export function ModeToggle() {
   }
 
   return (
-    <Button variant="outline" onClick={toggleTheme}>
-      <p className={`
-          scale-150 transition-all duration-700 ease-in-out
-          ${theme === "system" ? "rotate-90" : ""}
-          ${theme === "light" ? "rotate-270" : ""}
-          ${theme === "dark" ? "-rotate-90" : ""}
-        `}>
-        {theme === "system" ? <Settings /> : theme === "light" ? <Sun /> : <Moon />}
-      </p>
-    </Button>
+    <>
+      <Button variant="outline" onClick={toggleTheme}>
+        <p className={`
+           scale-150 transition-all duration-700 ease-in-out
+           ${theme === "system" ? "rotate-90" : ""}
+           ${theme === "light" ? "rotate-270" : ""}
+           ${theme === "dark" ? "-rotate-90" : ""}
+         `}>
+          {theme === "system" ? <Settings /> : theme === "light" ? <Sun /> : <Moon />}
+          {/* <span className="">{theme === "system" ? "auto" : theme === "light" ? "☀️" : "🌙"}</span> */}
+        </p>
+      </Button>
+    </>
   )
 }
