@@ -13,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, className }) => {
     <div className={`layout-default ${className}`}>
       {title && <h1>{title}</h1>}
       {children}
+      <h1>layout blank</h1>
       <hr />
       <Outlet />
     </div>

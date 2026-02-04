@@ -119,7 +119,7 @@ interface SearchItem {
 
 interface CommandSearchProps {
   open: boolean
-  onOpenChange: (open: boolean) => void
+  onOpenChange: (_open: boolean) => void
 }
 
 export function CommandSearch({ open, onOpenChange }: CommandSearchProps) {
