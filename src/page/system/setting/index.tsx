@@ -1,11 +1,10 @@
-import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useSidebarConfig } from "@/store/sidebar";
+import { useSidebarStore } from "@/store/sidebar";
 
 const Setting = () => {
-  const { variant, collapsible, side, setVariant, setCollapsible, setSide } = useSidebarConfig();
+  const { variant, collapsible, side, setVariant, setCollapsible, setSide } = useSidebarStore();
 
   return (
     <Card className="w-full max-w-md mx-auto">

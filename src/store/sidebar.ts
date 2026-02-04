@@ -2,17 +2,25 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 interface SidebarConfigState {
+  /** 侧边栏配置 */
   variant: "sidebar" | "floating" | "inset";
+  /** 侧边栏可折叠方式 */
   collapsible: "offcanvas" | "icon" | "none";
+  /** 侧边栏位置 */
   side: "left" | "right";
+  /** 侧边栏是否展开 */
   expanded: boolean;
-  setVariant: (variant: "sidebar" | "floating" | "inset") => void;
-  setCollapsible: (collapsible: "offcanvas" | "icon" | "none") => void;
-  setSide: (side: "left" | "right") => void;
+  /** 设置侧边栏可折叠方式 */
+  setVariant: (_variant: "sidebar" | "floating" | "inset") => void;
+  /** 设置侧边栏位置 */
+  setSide: (_side: "left" | "right") => void;
+  /** 设置侧边栏可折叠方式 */
+  setCollapsible: (_collapsible: "offcanvas" | "icon" | "none") => void;
+  /** 切换侧边栏展开状态 */
   toggleExpanded: () => void
 }
 
-export const useSidebarConfig = create<SidebarConfigState>()(
+export const useSidebarStore = create<SidebarConfigState>()(
   persist(
     (set) => ({
       variant: "sidebar",
@@ -25,7 +33,7 @@ export const useSidebarConfig = create<SidebarConfigState>()(
       toggleExpanded: () => set((state) => ({ expanded: !state.expanded })),
     }),
     {
-      name: "sidebar-config-storage", // localStorage 中的键名
+      name: "sidebar-storage", // localStorage 中的键名
       storage: createJSONStorage(() => localStorage),
     }
   )
