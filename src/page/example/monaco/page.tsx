@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MonacoEditorComponent } from "@/components/king-ui/monaco-editor";
+import { MonacoEditorComponent } from "@/components/king-ui/monaco-editor/monaco-editor";
 
 interface MonacoProps {
   className?: string
