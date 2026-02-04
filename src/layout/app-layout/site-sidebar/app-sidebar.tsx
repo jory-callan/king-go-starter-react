@@ -1,9 +1,6 @@
 "use client"
 
 import * as React from "react"
-import {
-  Circle,
-} from "lucide-react"
 import { Link } from "react-router"
 import { Logo } from "@/components/logo"
 
@@ -21,11 +18,6 @@ import {
 
 // 导入路由配置
 import { routesConfig } from "@/route/routes"
-
-// 定义图标映射
-const iconMap: Record<string, any> = {
-
-};
 
 // 从路由配置中提取导航组
 const getNavGroups = () => {
@@ -51,21 +43,12 @@ const getNavGroups = () => {
     return {
       label: groupName.charAt(0).toUpperCase() + groupName.slice(1), // 首字母大写
       items: routes.map(route => {
-        // 尝试从 meta.icon 获取图标，或者根据路径或分组确定图标
-        let icon = route.meta?.icon ? iconMap[route.meta.icon] : undefined;
-        if (!icon) {
-          // 如果没有指定图标，尝试根据分组名称匹配
-          icon = iconMap[groupName];
-        }
-        if (!icon) {
-          // 如果仍然没有图标，使用默认图标
-          icon = Circle;
-        }
-
+        // 优先从 meta.icon 获取图标，或者根据分组名字确定图标
+        const icon = route.meta?.icon || groupName;
         return {
           title: route.meta?.title || route.path,
           url: route.path,
-          icon: icon as any, // 类型转换以匹配 NavMain 组件的期望类型
+          icon, // 类型转换以匹配 NavMain 组件的期望类型
         };
       }),
     };
@@ -74,13 +57,24 @@ const getNavGroups = () => {
   return navGroups;
 };
 
+// 添加静态导航组数据
+const staticNavGroups = [
+  {
+    label: "Static Group",
+    items: [
+      { title: "Static Item 1", url: "/static/1" },
+      { title: "Static Item 2", url: "/static/2" },
+    ],
+  },
+];
+
 const data = {
   user: {
     name: "KingStarter",
     email: "kingstarter@example.com",
     avatar: "",
   },
-  navGroups: getNavGroups(),
+  navGroups: [...getNavGroups(), ...staticNavGroups],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

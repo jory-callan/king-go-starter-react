@@ -1,6 +1,7 @@
 "use client"
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+
 import { Link, useLocation } from "react-router"
 
 import {
@@ -18,16 +19,19 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+import LucideDynamicIcon from "@/components/lucide-dynamic";
 
 export function NavMain({
+  className,
   label,
   items,
 }: {
+  className?: string
   label: string
   items: {
     title: string
     url: string
-    icon?: LucideIcon
+    icon?: string
     isActive?: boolean
     items?: {
       title: string
@@ -45,7 +49,7 @@ export function NavMain({
   }
 
   return (
-    <SidebarGroup>
+    <SidebarGroup className={className}>
       <SidebarGroupLabel>{label}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
@@ -60,7 +64,7 @@ export function NavMain({
                 <>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton tooltip={item.title} className="cursor-pointer">
-                      {item.icon && <item.icon />}
+                      <LucideDynamicIcon name={item.icon || "circle"} size={48} />
                       <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
@@ -86,13 +90,11 @@ export function NavMain({
                 : ( // 如果没有子项，则显示普通的菜单项
                   <SidebarMenuButton asChild tooltip={item.title} className="cursor-pointer" isActive={location.pathname === item.url}>
                     <Link to={item.url}>
-                      {item.icon && <item.icon />}
+                      <LucideDynamicIcon name={item.icon || "circle"} size={48} />
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 )
-                // : (<SidebarMenuCollapsedDropdown key={item.title} item={item} href={item.url} />)
-
               }
             </SidebarMenuItem>
           </Collapsible>
