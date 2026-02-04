@@ -14,13 +14,15 @@ export function lazyLoad(importFn: () => Promise<{ default: ComponentType<any> }
 // 允许传入自定义的 fallback UI
 export function LazyElement(
   importFn: () => Promise<{ default: ComponentType<any> }>,
-  fallback: React.ReactNode = "Loading..."
+  fallback: React.ReactNode = <></>
 ) {
   const LazyComp = lazy(importFn);
   return (
-    <Suspense fallback={fallback}>
-      <LazyComp />
-    </Suspense>
+    <>
+      <Suspense fallback={fallback}>
+        <LazyComp />
+      </Suspense>
+    </>
   );
 }
 

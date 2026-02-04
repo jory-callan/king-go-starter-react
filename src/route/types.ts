@@ -21,8 +21,10 @@ export interface AppRoutes {
   path: string;
   label?: string;
   description?: string; // 页面描述
-  element?: React.ReactNode;
-  Component?: React.ComponentType; // 与 element 二选一
+  element?: React.ReactNode | null; // 页面组件，二选一
+  errorElement?: React.ReactNode | null; // 错误边界， 二选一
+  Component?: React.ComponentType | null; // 页面组件，二选一
+  ErrorBoundary?: React.ComponentType | null; // 错误边界， 二选一
   loader?: LoaderFunction;
   handle?: any;
   meta: RouteMeta;

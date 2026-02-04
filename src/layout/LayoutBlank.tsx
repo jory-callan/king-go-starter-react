@@ -4,18 +4,14 @@ import { Outlet } from "react-router"
 // 定义 props 类型（可抽离为接口，更清晰）
 interface LayoutProps {
   children?: React.ReactNode
-  title?: string // 可选标题
   className?: string // 可选自定义 class
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, title, className }) => {
+// 空白布局, 支持 children 和 outlet
+const Layout: React.FC<LayoutProps> = ({ children, className }) => {
   return (
     <div className={`layout-default ${className}`}>
-      {title && <h1>{title}</h1>}
-      {children}
-      <h1>layout blank</h1>
-      <hr />
-      <Outlet />
+      {children || <Outlet />}
     </div>
   )
 }

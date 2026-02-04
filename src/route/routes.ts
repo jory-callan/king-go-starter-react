@@ -1,4 +1,3 @@
-// routes.ts
 import type { AppRoutes } from "./types";
 import { LazyElement } from "./utils";
 
@@ -13,22 +12,28 @@ export const routesConfig: AppRoutes[] = [
   {
     path: "/error/401",
     element: LazyElement(() => import("@/page/error/401/page")),
-    meta: { layout:"LayoutDefault", title: "错误401", whitePage: true, hiddenInMenu: true }
+    meta: { layout:"LayoutBlank", title: "错误401", whitePage: true, hiddenInMenu: true }
   },
   {
     path: "/error/404",
     element: LazyElement(() => import("@/page/error/404/page")),
-    meta: { layout:"LayoutDefault", title: "错误404", whitePage: true, hiddenInMenu: true }
+    meta: { layout:"LayoutBlank", title: "错误404", whitePage: true, hiddenInMenu: true }
   },
   {
     path: "/error/500",
     element: LazyElement(() => import("@/page/error/500/page")),
-    meta: { layout:"LayoutDefault", title: "错误500", whitePage: true, hiddenInMenu: true }
+    meta: { layout:"LayoutBlank", title: "错误500", whitePage: true, hiddenInMenu: true }
   },
   {
     path: "/error/503",
     element: LazyElement(() => import("@/page/error/503/page")),
-    meta: { layout:"LayoutDefault", title: "错误503", whitePage: true, hiddenInMenu: true }
+    meta: { layout:"LayoutBlank", title: "错误503", whitePage: true, hiddenInMenu: true }
+  },
+  // 处理 404 的关键配置：path 为 "*"
+  {
+    path: "*",
+    element: LazyElement(() => import("@/page/error/404/page")),
+    meta: { layout:"LayoutBlank", title: "错误404", whitePage: true, hiddenInMenu: true }
   },
   // 业务路由
   {
