@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 import { Link } from "react-router"
 
-import { Logo } from "@/components/logo"
+import { Logo } from "@/components/mine/logo"
 import {
   DropdownMenu,
   DropdownMenuContent,

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { ModeToggle } from "@/components/mode-toggle"
+import { ModeToggle } from "@/components/mine/mode-toggle"
 import { getAppUrl } from "@/lib/utils"
 // const SITE_HEADER_HEIGHT = "3rem"
 export function SiteHeader() {

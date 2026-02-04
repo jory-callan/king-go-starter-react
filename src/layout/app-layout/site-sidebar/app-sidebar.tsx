@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Link } from "react-router"
-import { Logo } from "@/components/logo"
+import { Logo } from "@/components/mine/logo"
 
 import { NavMain } from "./nav-main"
 import { NavUser } from "./nav-user"

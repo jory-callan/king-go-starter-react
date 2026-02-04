@@ -2,10 +2,10 @@ import { Outlet } from "react-router"
 import { AppSidebar } from "./app-layout/site-sidebar/app-sidebar"
 import { SiteHeader } from "./app-layout/site-header"
 import { SiteFooter } from "./app-layout/site-footer"
-import { useSidebarConfig } from "@/store/sidebar"
+import { useSidebarStore } from "@/store/sidebar"
 
 const LayoutDefault = () => {
-  const { variant, side } = useSidebarConfig();
+  const { variant, side } = useSidebarStore();
   return (
     <>
       <div className="h-screen w-screen flex">

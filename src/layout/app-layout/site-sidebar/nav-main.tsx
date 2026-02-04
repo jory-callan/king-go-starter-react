@@ -19,7 +19,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
-import LucideDynamicIcon from "@/components/lucide-dynamic";
+import LucideDynamicIcon from "@/components/mine/lucide-dynamic";
 
 export function NavMain({
   className,
